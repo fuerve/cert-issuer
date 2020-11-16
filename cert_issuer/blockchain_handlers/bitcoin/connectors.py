@@ -283,12 +283,11 @@ connectors = {}
 # configure mainnet providers
 provider_list = providers.providers_for_config_string(PYCOIN_BTC_PROVIDERS,
                                                       helpers.to_pycoin_chain(Chain.bitcoin_mainnet))
-# blockexplorer.com is no longer on this list as it stopped servicing requests.
+# blockexplorer.com and Bitpay are no longer on this list as they stopped servicing requests.
 provider_list.append(BlockcypherProvider('https://api.blockcypher.com/v1/btc/main', blockcypher_token))
 provider_list.append(InsightProvider(netcode=helpers.to_pycoin_chain(Chain.bitcoin_mainnet)))
 provider_list.append(ChainSoProvider(netcode=helpers.to_pycoin_chain(Chain.bitcoin_mainnet)))
 provider_list.append(BlockstreamBroadcaster('https://blockstream.info/api'))
-provider_list.append(BitpayBroadcaster('https://insight.bitpay.com/api'))
 connectors[Chain.bitcoin_mainnet] = provider_list
 
 # configure testnet providers
@@ -297,7 +296,6 @@ xtn_provider_list = providers.providers_for_config_string(PYCOIN_XTN_PROVIDERS,
 xtn_provider_list.append(ChainSoProvider(netcode=helpers.to_pycoin_chain(Chain.bitcoin_testnet)))
 xtn_provider_list.append(BlockcypherProvider('https://api.blockcypher.com/v1/btc/test3', blockcypher_token))
 xtn_provider_list.append(BlockstreamBroadcaster('https://blockstream.info/testnet/api'))
-xtn_provider_list.append(BitpayBroadcaster('https://test-insight.bitpay.com/api'))
 connectors[Chain.bitcoin_testnet] = xtn_provider_list
 
 
